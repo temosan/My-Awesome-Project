@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-import SwiftUI
 
 /// 메인 화면 테이블 셀의 데이터 모델
 struct CellData: Decodable {
@@ -19,7 +18,6 @@ struct CellData: Decodable {
 struct CellDataes: Decodable {
     var data:[CellData]
 }
-
 
 class MyCell: UITableViewCell {
     //MARK:- Views
@@ -54,31 +52,40 @@ class MyCell: UITableViewCell {
     //MARK:- Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupLayout()
+        //setupLayout()
+        setupLayoutUseFrame()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupLayout() {
+//    func setupLayout() {
+//        backgroundColor = .clear
+//        contentView.addSubViews([picture, label, label2])
+//
+//        picture.snp.makeConstraints{
+//            $0.top.bottom.leading.equalToSuperview().inset(10)
+//            $0.width.height.equalTo(70)
+//        }
+//
+//        label.snp.makeConstraints{
+//            $0.height.equalTo(30)
+//            $0.top.equalToSuperview().offset(10)
+//            $0.leading.equalTo(picture.snp.trailing).offset(10)
+//        }
+//
+//        label2.snp.makeConstraints{
+//            $0.height.equalTo(30)
+//            $0.leading.equalTo(picture.snp.trailing).offset(10)
+//            $0.bottom.equalToSuperview().offset(-10)
+//        }
+//    }
+    func setupLayoutUseFrame() {
         backgroundColor = .clear
         contentView.addSubViews([picture, label, label2])
         
-        picture.snp.makeConstraints{
-            $0.top.bottom.leading.equalToSuperview().inset(10)
-            $0.width.height.equalTo(70)
-        }
-        
-        label.snp.makeConstraints{
-            $0.height.equalTo(30)
-            $0.top.equalToSuperview().offset(10)
-            $0.leading.equalTo(picture.snp.trailing).offset(10)
-        }
-        
-        label2.snp.makeConstraints{
-            $0.height.equalTo(30)
-            $0.leading.equalTo(picture.snp.trailing).offset(10)
-            $0.bottom.equalToSuperview().offset(-10)
-        }
+        picture.frame = CGRect(x: 10, y: 10, width: 70, height: 70)
+        label.frame = CGRect(x: 90, y: 10, width: UIScreen.main.bounds.width - 120, height: 30)
+        label2.frame = CGRect(x: 90, y: 50, width: UIScreen.main.bounds.width - 120, height: 30)
     }
 }

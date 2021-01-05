@@ -9,7 +9,7 @@ import UIKit
 import Then
 import SnapKit
 
-class MyViewController: UIViewController {
+class MyViewController_Frame: UIViewController {
     //MARK:- Params
     /// 테이블에 그려질 데이터
     let fileName = "test"
@@ -18,7 +18,7 @@ class MyViewController: UIViewController {
     //MARK:- Views
     /// 화면 중앙 메인 테이블뷰
     var tableView = UITableView().then {
-        $0.register(MyCell.self, forCellReuseIdentifier: "MyCell")
+        $0.register(MyCell.self, forCellReuseIdentifier: String(describing: MyCell.self))
         $0.setBorder(cornerRadius: 10)
     }
     
@@ -71,7 +71,7 @@ class MyViewController: UIViewController {
 }
 
 
-extension MyViewController: UITableViewDataSource {
+extension MyViewController_Frame: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataes.count
     }

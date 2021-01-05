@@ -15,6 +15,9 @@
 		58E0B49625A4294F0018D2B3 /* UIVIew+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E0B49525A4294F0018D2B3 /* UIVIew+.swift */; };
 		58E0B49A25A429610018D2B3 /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E0B49825A429610018D2B3 /* MyCell.swift */; };
 		58E0B49B25A429610018D2B3 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E0B49925A429610018D2B3 /* MyViewController.swift */; };
+		58E0B4D025A456AC0018D2B3 /* FrameJsonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E0B4CF25A456AC0018D2B3 /* FrameJsonVC.swift */; };
+		58E0B4D325A456CC0018D2B3 /* FrameJsonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E0B4D225A456CC0018D2B3 /* FrameJsonCell.swift */; };
+		58E0B4D725A4595C0018D2B3 /* frameJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 58E0B4D625A4595C0018D2B3 /* frameJson.json */; };
 		CE0BC169F865B2F6DFE0EC0A /* Pods_Sample001_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A33889B08E13D393A3039B4 /* Pods_Sample001_Swift.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +33,9 @@
 		58E0B49525A4294F0018D2B3 /* UIVIew+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIVIew+.swift"; sourceTree = "<group>"; };
 		58E0B49825A429610018D2B3 /* MyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
 		58E0B49925A429610018D2B3 /* MyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
+		58E0B4CF25A456AC0018D2B3 /* FrameJsonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameJsonVC.swift; sourceTree = "<group>"; };
+		58E0B4D225A456CC0018D2B3 /* FrameJsonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameJsonCell.swift; sourceTree = "<group>"; };
+		58E0B4D625A4595C0018D2B3 /* frameJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = frameJson.json; sourceTree = "<group>"; };
 		7A33889B08E13D393A3039B4 /* Pods_Sample001_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sample001_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C29C5DD8370EF03E55FBFC4 /* Pods-Sample001-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample001-Swift.debug.xcconfig"; path = "Target Support Files/Pods-Sample001-Swift/Pods-Sample001-Swift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				58E0B49225A429390018D2B3 /* test.json */,
+				58E0B4D625A4595C0018D2B3 /* frameJson.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -102,8 +109,8 @@
 		58E0B49025A428FD0018D2B3 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				58E0B49825A429610018D2B3 /* MyCell.swift */,
-				58E0B49925A429610018D2B3 /* MyViewController.swift */,
+				58E0B4BC25A44D030018D2B3 /* Main_1_SnapKit */,
+				58E0B4CE25A456670018D2B3 /* Main_2_Frame */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -118,6 +125,24 @@
 				3FFE7F9325A40D9B00B39943 /* Info.plist */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		58E0B4BC25A44D030018D2B3 /* Main_1_SnapKit */ = {
+			isa = PBXGroup;
+			children = (
+				58E0B49925A429610018D2B3 /* MyViewController.swift */,
+				58E0B49825A429610018D2B3 /* MyCell.swift */,
+			);
+			path = Main_1_SnapKit;
+			sourceTree = "<group>";
+		};
+		58E0B4CE25A456670018D2B3 /* Main_2_Frame */ = {
+			isa = PBXGroup;
+			children = (
+				58E0B4CF25A456AC0018D2B3 /* FrameJsonVC.swift */,
+				58E0B4D225A456CC0018D2B3 /* FrameJsonCell.swift */,
+			);
+			path = Main_2_Frame;
 			sourceTree = "<group>";
 		};
 		DDF1ED97DD5E4A1A101DE6B2 /* Pods */ = {
@@ -192,6 +217,7 @@
 				58E0B49325A429390018D2B3 /* test.json in Resources */,
 				3FFE7F8F25A40D9B00B39943 /* Assets.xcassets in Resources */,
 				3FFE7F8D25A40D9900B39943 /* Main.storyboard in Resources */,
+				58E0B4D725A4595C0018D2B3 /* frameJson.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +273,8 @@
 				58E0B49A25A429610018D2B3 /* MyCell.swift in Sources */,
 				3FFE7F8625A40D9900B39943 /* AppDelegate.swift in Sources */,
 				58E0B49B25A429610018D2B3 /* MyViewController.swift in Sources */,
+				58E0B4D325A456CC0018D2B3 /* FrameJsonCell.swift in Sources */,
+				58E0B4D025A456AC0018D2B3 /* FrameJsonVC.swift in Sources */,
 				58E0B49625A4294F0018D2B3 /* UIVIew+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

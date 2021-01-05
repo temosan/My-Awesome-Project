@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "FrameJsonVC.configure():FrameJsonVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "dataes">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MyViewController.viewDidLayoutSubviews():MyViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "view.safeAreaLayoutGuide.layoutFrame.minY">
+            </PersistentString>
+            <PersistentString
+               value = "view.safeAreaLayoutGuide.layoutFrame.maxY">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MyViewController.viewWillLayoutSubviews():MyViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "view.safeAreaLayoutGuide.layoutFrame.maxY">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MyViewController.setupLayoutUseFrame():MyViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "view.safeAreaLayoutGuide.layoutFrame.minY">
+            </PersistentString>
+            <PersistentString
+               value = "view.safeAreaLayoutGuide.layoutFrame.maxY">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MyViewController.viewSafeAreaInsetsDidChange():MyViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "view.safeAreaLayoutGuide.layoutFrame.maxY">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
