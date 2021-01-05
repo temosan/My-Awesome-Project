@@ -11,7 +11,7 @@ import SwiftyJSON
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    fileprivate let cellid = "cellid"
+    fileprivate let cellid = String(describing: mainCollectionViewCell())
     
     lazy var mainCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
