@@ -1,0 +1,19 @@
+{
+    "data": [
+        {
+            "image": "https://abc.png",
+            "title": "title",
+            "description": "description"
+        },
+        {
+            "image": "https://abc.png",
+            "title": "title2",
+            "description": "description2"
+        },
+        {
+            "image": "https://abc.png",
+            "title": "title3",
+            "description": "description3"
+        }
+    ]
+}
