@@ -87,7 +87,7 @@ class New_TableViewCell: UITableViewCell {
         stackview.addArrangedSubview(label3)
         stackview.addArrangedSubview(label4)
 
-        stackview.frame = CGRect(x: 10, y: 0, width: self.frame.width, height: self.frame.height)
+        stackview.frame = CGRect(x: 10, y: 0, width: self.frame.width-10, height: self.frame.height)
     }
 
     

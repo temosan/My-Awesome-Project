@@ -18,12 +18,15 @@ class New_ViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return tv
     }()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupLayouts()
-        parseJSON()
         mainTableView.register(New_TableViewCell.self, forCellReuseIdentifier: cellid)
+        
+        getData()
+        
     }
     
     fileprivate func setupLayouts() {
@@ -33,20 +36,34 @@ class New_ViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var testData = [new_test_model]()
     
-    fileprivate func parseJSON() {
-        if let path = Bundle.main.path(forResource: "new_test", ofType: "json") {
-            let url = URL(fileURLWithPath: path)
-            if let data = try? Data(contentsOf: url) {
-                let decoder = JSONDecoder()
-                do {
-                    let jsonResults = try decoder.decode(new_test.self, from: data)
-                    testData = jsonResults.data
-                    self.mainTableView.reloadData()
-                } catch {
-                    print(error)
-                }
+    // getData function에서 codable 모델과 json 파일을 명시해주고, 결과를 받아옵니다.
+    fileprivate func getData() {
+        parseJSON(type: new_test_models(), resource: "new_test") { (result) in
+            switch result {
+            case .success(let json):
+                guard let data = json.data else {return}
+                self.testData = data
+                self.mainTableView.reloadData()
+            case .failure(let message):
+                print(message)
             }
         }
+  
+    }
+    // json 파서에 제네릭 사용과 Result 타입 사용 하였습니다.
+    fileprivate func parseJSON<T: Codable>(type: T, resource: String, completion: @escaping (Result<T,Error>) -> ()) {
+        if let path = Bundle.main.path(forResource: resource, ofType: "json") {
+            let url = URL(fileURLWithPath: path)
+            do {
+                let data = try Data(contentsOf: url)
+                let decoder = JSONDecoder()
+                let jsonResults = try decoder.decode(T.self, from: data)
+                completion(.success(jsonResults))
+                
+                } catch {
+                    completion(.failure(error))
+                }
+            }
     }
 
     

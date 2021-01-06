@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct new_test: Codable {
-    var data: [new_test_model]
+struct new_test_models: Codable {
+    var data: [new_test_model]?
 }
 
 struct new_test_model: Codable {
-    var id: Int
-    var status: String
-    var downloadurl: String
-    var description: String
+    var id: Int?
+    var status: String?
+    var downloadurl: String?
+    var description: String?
 }
