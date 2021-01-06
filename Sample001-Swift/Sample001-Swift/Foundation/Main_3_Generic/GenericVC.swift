@@ -75,19 +75,16 @@ class GenericVC: UIViewController {
     func loadJson<T : Decodable>(_ type: T.Type, filename fileName: String) -> Result<T, loadJsonError> {
         /// 파일이름 -> URL
         guard let url = Bundle.main.url(forResource: fileName, withExtension: "json") else {
-            return .failure(.filenameToUrl)
-        }
+            return .failure(.filenameToUrl) }
         
         /// URL -> Data
-        let data: Data
-        do { data = try Data(contentsOf: url)}
-        catch { return .failure(.urlToData) }
+        guard let data = try? Data(contentsOf: url) else {
+            return .failure(.urlToData) }
         
         /// Data -> T타입 값
         let decoder = JSONDecoder()
-        let jsonData: T
-        do { jsonData = try decoder.decode(type, from: data) }
-        catch { return .failure(.dataToValue)}
+        guard let jsonData = try? decoder.decode(type, from: data) else {
+            return .failure(.urlToData) }
         
         return .success(jsonData)
     }

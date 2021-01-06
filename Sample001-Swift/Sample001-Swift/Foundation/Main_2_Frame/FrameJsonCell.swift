@@ -29,14 +29,14 @@ class FrameJsonCell: UITableViewCell {
     private let downloadurl = UILabel()
     private let desc = UILabel()
     
-    
     // Setter
     var frameCellData: FrameCellData? {
         didSet {
-            id.text = String(frameCellData!.id)
-            status.text = frameCellData!.status
-            downloadurl.text = frameCellData!.downloadurl
-            desc.text = frameCellData!.description
+            guard let data = frameCellData else { return }
+            id.text = String(data.id)
+            status.text = data.status
+            downloadurl.text = data.downloadurl
+            desc.text = data.description
         }
     }
     
