@@ -33,10 +33,10 @@ class FrameJsonCell: UITableViewCell {
     // Setter
     var frameCellData: FrameCellData? {
         didSet {
-            id.text = String(frameCellData.id)
-            status.text = frameCellData.status
-            downloadurl.text = frameCellData.downloadurl
-            desc.text = frameCellData.description
+            id.text = String(frameCellData!.id)
+            status.text = frameCellData!.status
+            downloadurl.text = frameCellData!.downloadurl
+            desc.text = frameCellData!.description
         }
     }
     
