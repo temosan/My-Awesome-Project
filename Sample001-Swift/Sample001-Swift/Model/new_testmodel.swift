@@ -11,7 +11,7 @@ struct new_test_models: Codable {
     var data: [new_test_model]?
 }
 
-struct new_test_model: Codable {
+struct new_test_model: Identifiable, Codable {
     var id: Int?
     var status: String?
     var downloadurl: String?

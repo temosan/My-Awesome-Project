@@ -23,10 +23,16 @@ class New_ViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         
         setupLayouts()
-        mainTableView.register(New_TableViewCell.self, forCellReuseIdentifier: cellid)
+        
+//        mainTableView.register(New_TableViewCell.self, forCellReuseIdentifier: cellid)
+        
+        // 만약 추가로 확장되었을 경우
+        let cells = [New_TableViewCell.self]
+        cells.forEach { (cell) in
+            mainTableView.register(cell.self, forCellReuseIdentifier: String(describing: cell))
+        }
         
         getData()
-        
     }
     
     fileprivate func setupLayouts() {
@@ -65,14 +71,42 @@ class New_ViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 }
             }
     }
-
+    
+    public enum ParseError: Error {
+        case notFoundFile
+        case jsonSyntaxError
+    }
+    
+    /// parseJSON을 guard로 바꾼 method
+    /// - Parameters:
+    ///   - type: object Type
+    ///   - resource: bundle resouce name
+    ///   - completion: handler
+    /// - Returns: -
+    public class func guardParseJSON<T: Codable>(type: T, resource: String, completion: @escaping (Result<T,Error>) -> ()) {
+        guard
+            let path = Bundle.main.path(forResource: resource, ofType: "json"),
+            let data = try? Data(contentsOf: URL(fileURLWithPath: path))
+        else {
+            completion(.failure(ParseError.notFoundFile))
+            return
+        }
+        
+        guard let object = try? JSONDecoder().decode(T.self, from: data) else {
+            completion(.failure(ParseError.jsonSyntaxError))
+            return
+        }
+        
+        completion(.success(object))
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return testData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath) as! New_TableViewCell
+        let identifier = String(describing: New_TableViewCell.self)
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! New_TableViewCell
         cell.data = testData[indexPath.item]
         return cell
     }
@@ -80,7 +114,4 @@ class New_ViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
-    
-    
-    
 }
