@@ -87,7 +87,8 @@ extension FrameJsonVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: FrameJsonCell.self)) as! FrameJsonCell
-        cell.mappingData(cellData: dataes[indexPath.row])
+        cell.frameCellData = dataes[indexPath.row]
+//        cell.mappingData(cellData: dataes[indexPath.row])
         return cell
     }
 }
