@@ -23,10 +23,22 @@ struct FrameCellDataes: Decodable {
 
 class FrameJsonCell: UITableViewCell {
     //MARK:- Views
-    let id = UILabel()
-    let status = UILabel()
-    let downloadurl = UILabel()
-    let desc = UILabel()
+    
+    private let id = UILabel()
+    private let status = UILabel()
+    private let downloadurl = UILabel()
+    private let desc = UILabel()
+    
+    
+    // Setter
+    var frameCellData: FrameCellData? {
+        didSet {
+            id.text = String(frameCellData.id)
+            status.text = frameCellData.status
+            downloadurl.text = frameCellData.downloadurl
+            desc.text = frameCellData.description
+        }
+    }
     
     //MARK:- Methoes
     /// 셀에 데이터 넣기
@@ -50,6 +62,19 @@ class FrameJsonCell: UITableViewCell {
         return nil
     }
     
+    /// URL문자열을 이미지로 변경
+    /// guard문으로 교체 할 경우에는 가독성이 더 나아 보입니다.
+    /// - Parameter urlString: Image URL String
+    /// - Returns: UIImage of URL Parameter
+    private func guardUrlStringToImage(urlString: String) -> UIImage? {
+        guard
+            let url = URL(string: urlString),
+            let data = try? Data(contentsOf: url)
+        else { return nil }
+        
+        return UIImage(data: data)
+    }
+    
     //MARK:- Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -68,5 +93,14 @@ class FrameJsonCell: UITableViewCell {
         status.frame = CGRect(x: 100, y: 10, width: UIScreen.main.bounds.width - 120, height: 20)
         downloadurl.frame = CGRect(x: 100, y: 40, width: UIScreen.main.bounds.width - 120, height: 20)
         desc.frame = CGRect(x: 100, y: 70, width: UIScreen.main.bounds.width - 120, height: 20)
+        
+        /// Recommend
+        let sideMargin: CGFloat = 10
+        let verticalSpacing: CGFloat = 10
+        
+        var newFrame = CGRect(x: id.frame.maxX, y: verticalSpacing,
+                              width: UIScreen.main.bounds.width, height: 20)
+        newFrame.origin.x += id.frame.maxX
+        newFrame.size.width -= sideMargin * 2
     }
 }
