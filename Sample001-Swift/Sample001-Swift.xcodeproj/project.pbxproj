@@ -21,6 +21,10 @@
 		CA658B6425A443710092AB4F /* new_test.json in Resources */ = {isa = PBXBuildFile; fileRef = CA658B6325A443710092AB4F /* new_test.json */; };
 		CA658B6725A445720092AB4F /* New_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA658B6625A445720092AB4F /* New_TableViewCell.swift */; };
 		CA658B6C25A44BA70092AB4F /* new_testmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA658B6B25A44BA70092AB4F /* new_testmodel.swift */; };
+		CA6F6BA625A595F600138B7C /* third_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6F6BA525A595F600138B7C /* third_ViewController.swift */; };
+		CA6F6BA925A598C200138B7C /* URL_Session_model .swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6F6BA825A598C200138B7C /* URL_Session_model .swift */; };
+		CA6F6BAC25A5A3A900138B7C /* thirdCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6F6BAB25A5A3A900138B7C /* thirdCollectionViewCell.swift */; };
+		CA6F6BAF25A5A3C200138B7C /* thirdCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6F6BAE25A5A3C100138B7C /* thirdCollectionViewHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		CA658B6325A443710092AB4F /* new_test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = new_test.json; sourceTree = "<group>"; };
 		CA658B6625A445720092AB4F /* New_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = New_TableViewCell.swift; sourceTree = "<group>"; };
 		CA658B6B25A44BA70092AB4F /* new_testmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = new_testmodel.swift; sourceTree = "<group>"; };
+		CA6F6BA525A595F600138B7C /* third_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = third_ViewController.swift; sourceTree = "<group>"; };
+		CA6F6BA825A598C200138B7C /* URL_Session_model .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL_Session_model .swift"; sourceTree = "<group>"; };
+		CA6F6BAB25A5A3A900138B7C /* thirdCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thirdCollectionViewCell.swift; sourceTree = "<group>"; };
+		CA6F6BAE25A5A3C100138B7C /* thirdCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thirdCollectionViewHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +99,7 @@
 			children = (
 				CA658B3525A439410092AB4F /* testModel.swift */,
 				CA658B6B25A44BA70092AB4F /* new_testmodel.swift */,
+				CA6F6BA825A598C200138B7C /* URL_Session_model .swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -100,6 +109,7 @@
 			children = (
 				3FFE7F8925A40D9900B39943 /* ViewController.swift */,
 				CA658B6025A443480092AB4F /* New_ViewController.swift */,
+				CA6F6BA525A595F600138B7C /* third_ViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -109,6 +119,8 @@
 			children = (
 				CA658B3225A4393B0092AB4F /* mainCollectionViewCell.swift */,
 				CA658B6625A445720092AB4F /* New_TableViewCell.swift */,
+				CA6F6BAB25A5A3A900138B7C /* thirdCollectionViewCell.swift */,
+				CA6F6BAE25A5A3C100138B7C /* thirdCollectionViewHeader.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -194,11 +206,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA658B6C25A44BA70092AB4F /* new_testmodel.swift in Sources */,
+				CA6F6BAF25A5A3C200138B7C /* thirdCollectionViewHeader.swift in Sources */,
 				3FFE7F8A25A40D9900B39943 /* ViewController.swift in Sources */,
 				CA658B6725A445720092AB4F /* New_TableViewCell.swift in Sources */,
 				CA658B6125A443480092AB4F /* New_ViewController.swift in Sources */,
+				CA6F6BAC25A5A3A900138B7C /* thirdCollectionViewCell.swift in Sources */,
 				3FFE7F8625A40D9900B39943 /* AppDelegate.swift in Sources */,
+				CA6F6BA925A598C200138B7C /* URL_Session_model .swift in Sources */,
 				CA658B3325A4393B0092AB4F /* mainCollectionViewCell.swift in Sources */,
+				CA6F6BA625A595F600138B7C /* third_ViewController.swift in Sources */,
 				CA658B3625A439410092AB4F /* testModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
