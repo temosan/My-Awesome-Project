@@ -11,6 +11,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "RequesterManager.startDownload(_:):RequesterManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "downloadsSession.delegate">
+            </PersistentString>
+            <PersistentString
+               value = "activeDownloads">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "MyViewController.viewDidLayoutSubviews():MyViewController.swift">
          <PersistentStrings>
             <PersistentString

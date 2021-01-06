@@ -1,0 +1,71 @@
+{
+    "servers": {
+        "develop": [
+            {
+                "id": 8,
+                "version": "1.6.3",
+                "build": "8",
+                "downloadURL": "itms-services://?action=download-manifest&url=https://s3-ap-northeast-1.amazonaws.com/file-dev.adiscope.com/develop/AdiscopeApp-DEV-1.6.3-8.plist",
+                "description": "iPhone12에서 Offerwall 상단 공백 제거"
+            },
+            {
+                "id": 7,
+                "version": "1.6.3",
+                "build": "7",
+                "downloadURL": "itms-services://?action=download-manifest&url=https://s3-ap-northeast-1.amazonaws.com/file-dev.adiscope.com/develop/AdiscopeApp-DEV-1.6.3-7.plist",
+                "description": "Reward Amount \uac12 \uc218\uc815 & Reward \uc790\ub974\uc9c0 \uc54a\uace0 \ubaa8\ub450 \ubcf4\uc5ec\uc8fc\uac8c \ubcc0\uacbd"
+            },
+            {
+                "id": 6,
+                "version": "1.6.3",
+                "build": "6",
+                "downloadURL": "itms-services://?action=download-manifest&url=https://s3-ap-northeast-1.amazonaws.com/file-dev.adiscope.com/develop/AdiscopeApp-DEV-1.6.3-6.plist",
+                "description": "1.6.3 Build 6 \uc774\ud6c4\ubd80\ud130\ub294 VPN\uc73c\ub85c \uc811\uc18d \ud560 \ud544\uc694\uac00 \uc5c6\uac8c \uc218\uc815"
+            },
+            {
+                "id": 5,
+                "version": "1.6.3",
+                "build": "5",
+                "downloadURL": "itms-services://?action=download-manifest&url=https://s3-ap-northeast-1.amazonaws.com/file-dev.adiscope.com/develop/AdiscopeApp-DEV-1.6.3-5.plist",
+                "description": "Offerwall \uc644\ub8cc\ud56d\ubaa9\uc5d0\uc11c Detail \uc811\uadfc \uac00\ub2a5 \uc218\uc815"
+            },
+            {
+                "id": 4,
+                "version": "1.6.3",
+                "build": "4",
+                "downloadURL": "itms-services://?action=download-manifest&url=https://s3-ap-northeast-1.amazonaws.com/file-dev.adiscope.com/develop/AdiscopeApp-DEV-1.6.3-4.plist",
+                "description": "Offerwall \uc644\ub8cc\ud56d\ubaa9\uc5d0\uc11c \uac2f\uc218 \ud45c\uae30 \ubcc0\uacbd"
+            },
+            {
+                "id": 3,
+                "version": "1.6.3",
+                "build": "3",
+                "downloadURL": "itms-services://?action=download-manifest&url=https://s3-ap-northeast-1.amazonaws.com/file-dev.adiscope.com/develop/AdiscopeApp-DEV-1.6.3-3.plist",
+                "description": "Offerwall \uc644\ub8cc \ud56d\ubaa9\uc5d0\uc11c \ubc84\ud2bc \uc791\ub3d9 \ubc84\uadf8 \uc218\uc815"
+            },
+            {
+                "id": 2,
+                "version": "1.6.3",
+                "build": "2",
+                "downloadURL": "itms-services://?action=download-manifest&url=https://s3-ap-northeast-1.amazonaws.com/file-dev.adiscope.com/develop/AdiscopeApp-DEV-1.6.3-2.plist",
+                "description": "Offerwall N\ubc30 \ubcf4\uc0c1 \uc801\uc6a9"
+            },
+            {
+                "id": 1,
+                "version": "1.6.1",
+                "build": "3",
+                "downloadURL": "itms-services://?action=download-manifest&url=https://s3-ap-northeast-1.amazonaws.com/file-dev.adiscope.com/develop/AdiscopeApp-DEV-1.6.1-3.plist",
+                "description": "TestApp: Updated IPA Download View"
+            }
+        ],
+        "service": [
+            {
+                "id": 1,
+                "version": "1.5.9",
+                "build": "1",
+                "downloadURL": "itms-services://?action=download-manifest&url=https://s3-ap-northeast-1.amazonaws.com/file-dev.adiscope.com/develop/AdiscopeApp-SVC-1.5.9-1.plist",
+                "description": "Deployed 2020. 10. 22 (iOS 14 \ub300\uc751)"
+            }
+        ]
+    }
+}
