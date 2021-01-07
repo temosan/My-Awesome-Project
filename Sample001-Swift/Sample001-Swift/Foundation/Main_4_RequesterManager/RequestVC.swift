@@ -39,7 +39,7 @@ class RequestVC: UIViewController {
         loadData()
         
         /// 델리게이트 설정하고 넘겨주기
-        RequesterManager.shared.downloadsSession = downloadsSession
+        DownloadManager.shared.downloadsSession = downloadsSession
     }
         
     //MARK:- Methoes
@@ -102,7 +102,7 @@ extension RequestVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RequestCell.self)) as! RequestCell
         cell.delegate = self
-        cell.mappingData(cellData: (dataes?.servers.develop[indexPath.row])!, downloaded: false, download: RequesterManager.shared.activeDownloads[URL(string:dataes?.servers.develop[indexPath.row].downloadURL ?? "")!])
+        cell.mappingData(cellData: (dataes?.servers.develop[indexPath.row])!, downloaded: false, download: DownloadManager.shared.activeDownloads[URL(string:dataes?.servers.develop[indexPath.row].downloadURL ?? "")!])
         return cell
     }
 }
@@ -115,8 +115,8 @@ extension RequestVC: URLSessionDownloadDelegate {
             return
         }
 
-        let download = RequesterManager.shared.activeDownloads[sourceURL]
-        RequesterManager.shared.activeDownloads[sourceURL] = nil
+        let download = DownloadManager.shared.activeDownloads[sourceURL]
+        DownloadManager.shared.activeDownloads[sourceURL] = nil
         
         DispatchQueue.main.async { [weak self] in
             self?.tableView.reloadData()
@@ -139,7 +139,7 @@ extension RequestVC: CellDelegate {
             //guard let url = URL(string: cellData.downloadURL) else { return }
             ///정상적인 URL 넣으니까 작동함. (테일러 스위프트 음원임)
             guard let url = URL(string: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview118/v4/29/a7/3c/29a73c87-754b-3ed9-32ee-c2debff14693/mzaf_7473464556302093883.plus.aac.p.m4a") else { return }
-            RequesterManager.shared.startDownload(url)
+            DownloadManager.shared.startDownload(url)
             
             tableView.reloadRows(at: [indexPath], with: .none)
         }
