@@ -50,7 +50,7 @@ class RequestCell: UITableViewCell {
     }
     
     // Setter
-    var requestCellData: RequestCellData? {
+    var requestCellData: IPA? {
         didSet {
             guard let data = requestCellData else { return }
             id.text = "id:" + String(data.id)
@@ -62,7 +62,7 @@ class RequestCell: UITableViewCell {
     
     //MARK:- Methoes
     /// 셀에 데이터 넣기
-    func mappingData(cellData: RequestCellData, downloaded: Bool, download: Download?) {
+    func mappingData(cellData: IPA, downloaded: Bool, download: Download?) {
         requestCellData = cellData
         
         if let download = download {

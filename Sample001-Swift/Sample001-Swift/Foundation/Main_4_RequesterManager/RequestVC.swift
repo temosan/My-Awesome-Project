@@ -12,7 +12,7 @@ class RequestVC: UIViewController {
     //MARK:- Params
     /// 테이블에 그려질 데이터
     let serverUrlString = "https://dl.dropboxusercontent.com/s/8a9ouqhnrzac11y/sample_dev.json"
-    var dataes: RequestCellDataes = RequestCellDataes(servers: Servers(develop: [], service: []))
+    var dataes: IPAResponse?// = RequestCellDataes(servers: Servers(develop: [], service: []))
     
     /// 다운로드 세션 델리게이트 설정
     lazy var downloadsSession: URLSession = {
@@ -45,17 +45,29 @@ class RequestVC: UIViewController {
     //MARK:- Methoes
     /// 데이터 받아와서 테이블에 뿌려주기
     func loadData() {
-        RequesterManager.shared.loadServerJson(RequestCellDataes.self, urlString: serverUrlString) { [weak self] result in
+        NetworkManager.Request.new(urlString: serverUrlString, method: .GET) { [weak self] (result:Result<IPAResponse, NetworkManager.NetworkError>) in
             switch result {
+            case .failure(let error):
+                print(error)
             case .success(let dataes):
                 self?.dataes = dataes
                 DispatchQueue.main.async { [weak self] in
                     self?.tableView.reloadData()
                 }
-            case .failure(let error):
-                print(error)
             }
         }
+        
+//        RequesterManager.shared.loadServerJson(RequestCellDataes.self, urlString: serverUrlString) { [weak self] result in
+//            switch result {
+//            case .success(let dataes):
+//                self?.dataes = dataes
+//                DispatchQueue.main.async { [weak self] in
+//                    self?.tableView.reloadData()
+//                }
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
     }
     
     /// 초기 세팅
@@ -84,13 +96,13 @@ extension RequestVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataes.servers.develop.count
+        return dataes?.servers.develop.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RequestCell.self)) as! RequestCell
         cell.delegate = self
-        cell.mappingData(cellData: dataes.servers.develop[indexPath.row], downloaded: false, download: RequesterManager.shared.activeDownloads[URL(string:dataes.servers.develop[indexPath.row].downloadURL)!])
+        cell.mappingData(cellData: (dataes?.servers.develop[indexPath.row])!, downloaded: false, download: RequesterManager.shared.activeDownloads[URL(string:dataes?.servers.develop[indexPath.row].downloadURL ?? "")!])
         return cell
     }
 }
@@ -121,7 +133,7 @@ extension RequestVC: URLSessionDownloadDelegate {
 extension RequestVC: CellDelegate {
     func downloadTapped(_ cell: RequestCell) {
         if let indexPath = tableView.indexPath(for: cell) {
-            let cellData = dataes.servers.develop[indexPath.row]
+            let cellData = dataes?.servers.develop[indexPath.row]
             
             ///JSON의 URL들이 문제인듯..?
             //guard let url = URL(string: cellData.downloadURL) else { return }
