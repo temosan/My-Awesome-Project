@@ -11,10 +11,10 @@ class RequestVC: UIViewController {
 
     //MARK:- Params
     /// 테이블에 그려질 데이터
-    let fileName = "servers"
-    var dataes: RequestCellDataes!
+    let serverUrlString = "https://dl.dropboxusercontent.com/s/8a9ouqhnrzac11y/sample_dev.json"
+    var dataes: RequestCellDataes = RequestCellDataes(servers: Servers(develop: [], service: []))
     
-    /// 델리게이트 설정
+    /// 다운로드 세션 델리게이트 설정
     lazy var downloadsSession: URLSession = {
     let configuration = URLSessionConfiguration.default
 
@@ -45,11 +45,13 @@ class RequestVC: UIViewController {
     //MARK:- Methoes
     /// 데이터 받아와서 테이블에 뿌려주기
     func loadData() {
-        Utilities.shared.loadJson(RequestCellDataes.self, filename: fileName) { [weak self] result in
+        RequesterManager.shared.loadServerJson(RequestCellDataes.self, urlString: serverUrlString) { [weak self] result in
             switch result {
             case .success(let dataes):
                 self?.dataes = dataes
-                self?.tableView.reloadData()
+                DispatchQueue.main.async { [weak self] in
+                    self?.tableView.reloadData()
+                }
             case .failure(let error):
                 print(error)
             }
